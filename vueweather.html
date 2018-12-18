@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>VueJS Tutorials</title>
+
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+    <h1>VueWeather</h1>
+    <div id="app">
+           <input type="text" id="myText" v-on:keyup.enter="getWeather" placeholder="Enter city">
+<!--    submitbuttn-->
+           
+            <div>{{city}},{{country}}</div>
+            <div v-for="time in times">
+        <div class="box">
+
+                <p>{{ time.dt_txt}}</p>
+                <p>{{ Math.round(time.main.temp)}}℃</p>
+                <p>{{ time.weather["0"].description}}</p>
+                <img :src="'http://openweathermap.org/img/w/' + time.weather[0].icon + '.png'" >
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="vueweather.js"></script>
+</html>
